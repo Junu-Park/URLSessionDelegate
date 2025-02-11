@@ -15,6 +15,15 @@ final class NasaViewController: UIViewController {
     private let progressLabel = UILabel()
     private let button = UIButton()
     
+    private var buffer: Data = Data() {
+        didSet {
+            let percent = round((Double(self.buffer.count) / self.total) * 100)
+            self.progressLabel.text = "\(percent) / 100"
+            self.imageView.image = UIImage(data: self.buffer)
+        }
+    }
+    private var total: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
