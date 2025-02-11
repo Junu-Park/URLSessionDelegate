@@ -23,6 +23,10 @@ final class NasaViewController: UIViewController {
         self.configureLayout()
     }
     
+    @objc private func buttonTapped() {
+        
+    }
+    
     private func configureView() {
         self.view.backgroundColor = UIColor.white
         
@@ -32,6 +36,7 @@ final class NasaViewController: UIViewController {
         self.progressLabel.textColor = UIColor.white
         self.progressLabel.backgroundColor = UIColor.black
         self.button.backgroundColor = UIColor.systemTeal
+        self.button.addTarget(self, action: #selector(self.buttonTapped), for: .touchUpInside)
     }
     
     private func configureHierarchy() {
